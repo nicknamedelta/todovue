@@ -2,11 +2,6 @@
 
 ⚆ᗝ⚆ - "It is certainly a task list !!!"
 
-## Color Palette
-
-- ![#272d2d](https://placehold.it/15/272d2d/000000?text=+) `#272d2d`
-- ![#f78764](https://placehold.it/15/f78764/000000?text=+) `#f78764`
-
 ## :runner: To run this project ?
 
 ``` bash
