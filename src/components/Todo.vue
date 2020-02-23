@@ -23,20 +23,29 @@
           <input type="text" v-model="todo.project" />
         </div>
         <div class="ui two button attached buttons">
-          <button class="ui basic blue button" v-on:click="hideForm">Close X</button>
+          <div class="ui animated green button" tabindex="0" v-on:click="hideForm()">
+            <div class="visible content white-color">Confirm</div>
+            <div class="hidden content">
+              <i class="right check icon white-color"></i>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div
-      class="ui bottom attached green basic button"
-      v-show="!isEditing &&todo.done"
-      disabled
-    >Completed</div>
-    <div
-      class="ui bottom attached red basic button"
-      v-on:click="completeTodo(todo)"
-      v-show="!isEditing && !todo.done"
-    >Pending</div>
+    <div class="ui bottom attached green button" v-show="!isEditing && todo.done" disabled>Completed</div>
+    <div class="ui two button attached buttons">
+      <div
+        class="ui animated red button"
+        tabindex="0"
+        v-on:click="completeTodo(todo)"
+        v-show="!isEditing && !todo.done"
+      >
+        <div class="visible content white-color">Pending</div>
+        <div class="hidden content">
+          <i class="right check icon white-color"></i>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -64,3 +73,9 @@ export default {
   }
 };
 </script>
+
+<style>
+.white-color {
+  color: #fafafa;
+}
+</style>

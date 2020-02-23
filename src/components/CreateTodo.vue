@@ -15,8 +15,18 @@
             <input v-model="projectText" type="text" />
           </div>
           <div class="ui two button attached buttons">
-            <button class="ui basic blue button" v-on:click="sendForm()">Create</button>
-            <button class="ui basic red button" v-on:click="closeForm">Cancel</button>
+            <div class="ui animated green button" tabindex="0" v-on:click="sendForm()">
+              <div class="visible content white-color">Create</div>
+              <div class="hidden content">
+                <i class="right check icon white-color"></i>
+              </div>
+            </div>
+            <div class="ui animated red button" tabindex="0" v-on:click="closeForm()">
+              <div class="visible content white-color">Close</div>
+              <div class="hidden content">
+                <i class="right close icon white-color"></i>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -57,3 +67,9 @@ export default {
   }
 };
 </script>
+
+<style>
+.white-color {
+  color: #fafafa;
+}
+</style>

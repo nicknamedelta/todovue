@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import sweetalert from "sweetalert";
+import swal from "sweetalert2";
 import TodoList from "./components/TodoList";
 import CreateTodo from "./components/CreateTodo";
 
@@ -49,7 +49,7 @@ export default {
   methods: {
     createTodo(newTodo) {
       this.todos.push(newTodo);
-      sweetalert("Success!", "To-Do created!", "success");
+      swal.fire("Success!", "To-Do created!", "success");
     }
   }
 };

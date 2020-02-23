@@ -1,7 +1,8 @@
 <template>
   <div>
-    <p class="tasks">Completed Tasks: {{todos.filter(todo => {return todo.done === true}).length}}</p>
-    <p class="tasks">Pending Tasks: {{todos.filter(todo => {return todo.done === false}).length}}</p>
+    <p
+      class="tasks"
+    >Completed Tasks: {{todos.filter(todo => {return todo.done === true}).length}} Pending Tasks: {{todos.filter(todo => {return todo.done === false}).length}}</p>
     <todo
       v-on:delete-todo="deleteTodo"
       v-on:complete-todo="completeTodo"
@@ -13,7 +14,7 @@
 </template>
 
 <script type = "text/javascript" >
-import sweetalert from "sweetalert";
+import swal from "sweetalert2";
 import Todo from "./Todo";
 
 export default {
@@ -23,24 +24,25 @@ export default {
   },
   methods: {
     deleteTodo(todo) {
-      sweetalert({
-        title: "Are you sure?",
-        text: "This To-Do will be permanently deleted!",
-        type: "warning",
+      swal.fire({
+        icon: "warning",
+        title: "Are you sure ?",
+        text: "You will not be able to recover this page !",
         showCancelButton: true,
-        confirmButtonColor: "#DD6B55",
-        confirmButtonText: "Yes, delete it!",
-        closeOnConfirm: false
-      }).then(() => {
-        const todoIndex = this.todos.indexOf(todo);
-        this.todos.splice(todoIndex, 1);
-        sweetalert("Deleted!", "Your To-Do has been deleted.", "success");
+        confirmButtonColor: "#ff0000",
+        confirmButtonText: "Yes, delete it !",
+        cancelButtonText: "No, cancel !",
+        preConfirm: () => {
+          const todoIndex = this.todos.indexOf(todo);
+          this.todos.splice(todoIndex, 1);
+          swal.fire("Deleted!", "Your To-Do has been deleted.", "success");
+        }
       });
     },
     completeTodo(todo) {
       const todoIndex = this.todos.indexOf(todo);
       this.todos[todoIndex].done = true;
-      sweetalert("Success!", "To-Do completed!", "success");
+      swal.fire("Success!", "To-Do completed!", "success");
     }
   }
 };
