@@ -1,6 +1,6 @@
 # todovue
 
-⚆ᗝ⚆ - "It is certainly a task list !!!"
+(☉_☉) - "It is certainly a task list !!!"
 
 ## What was used ?
 
